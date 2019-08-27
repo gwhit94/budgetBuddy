@@ -6,7 +6,7 @@ const incomeFunctions = require('../models/income.models');
 router.get('/getbyId/:userid', (req, res) => {
     incomeFunctions.getIncome(res, req.params.userid);
 })
-router.post('/add', (req,res) => {
+router.post('/add', (req, res) => {
     incomeFunctions.addIncome(res, req.body);
 })
 router.delete('/delete/:id', (req, res) => {

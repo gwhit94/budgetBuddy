@@ -20,7 +20,6 @@ function addIncome(res, income) {
         }
     });
 }
-
 function deleteIncome(res, id) {
     pool.query(`DELETE FROM income WHERE id = ?`, id, (err, results, field) => {
         if (err) {
