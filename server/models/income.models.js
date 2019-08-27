@@ -1,7 +1,7 @@
 const pool = require('../connections');
 
 function getIncome(res, userid) {
-    pool.query(`SELECT * FROM income WHERE user_id = `, userid, (err, results, field) => {
+    pool.query(`SELECT * FROM income WHERE user_id = ?`, userid, (err, results, field) => {
         if (err) {
             res.send(err);
         }
@@ -22,7 +22,7 @@ function addIncome(res, income) {
 }
 
 function deleteIncome(res, id) {
-    pool.query(`DELETE FROM income WHERE id = id`, id, (err, results, field) => {
+    pool.query(`DELETE FROM income WHERE id = ?`, id, (err, results, field) => {
         if (err) {
             res.send(err);
         }
