@@ -11,6 +11,7 @@ app.use(express.static(__dirname+"/dist/budgetBuddy"))
 app.get('/', (req, res) => res.sendFile('/dist/budgetBuddy/index.html', {root: __dirname + "/"}))
 
 app.use('/api/user', userRoutes)
+app.use('/api/income')
 
 
 app.get('/*', (req, res)=>{
