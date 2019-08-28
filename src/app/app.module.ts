@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { IncomeComponent } from './income/income.component';
 import { ExpensesComponent } from './expenses/expenses.component';
+import { GraphComponent } from './graph/graph.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ExpensesComponent } from './expenses/expenses.component';
     LoginComponent,
     RegisterComponent,
     IncomeComponent,
-    ExpensesComponent
+    ExpensesComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,

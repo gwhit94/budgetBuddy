@@ -5,6 +5,7 @@ import { RegisterComponent } from './register/register.component';
 import { IncomeComponent } from './income/income.component';
 import { ExpensesComponent } from './expenses/expenses.component';
 import { MainComponent } from './main/main.component';
+import { GraphComponent } from './graph/graph.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'income', component: IncomeComponent},
   {path: 'expenses', component: ExpensesComponent},
   {path: 'main', component: MainComponent},
-  {path: '**', redirectTo: '/main'}
+  {path: 'graph', component: GraphComponent},
+  {path: '**', redirectTo: '/main'},
 ];
 
 @NgModule({
