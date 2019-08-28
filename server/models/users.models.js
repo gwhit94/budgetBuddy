@@ -1,13 +1,19 @@
 const pool = require('../connections');
 const bcrypt = require('bcrypt');
 
-function getUser(res, username) {
-    pool.query(`SELECT * FROM user WHERE username = ?`, username, (err, results, field) => {
+function getUser(res, user) {
+    pool.query(`SELECT * FROM user WHERE username = ?`, user.username, (err, results, field) => {
         if (err) {
             res.send(err);
+        } else if (bcrypt.compareSync(user.password, results[0].password)) {
+            const logininfo = {
+                username: results[0].username,
+                first: results[0].first
+            }
+            return res.send(logininfo);
         }
         else {
-            res.send(results);
+            res.send("Username not found or password not matching");
         }
     })
 };
@@ -21,7 +27,6 @@ async function createNewUser(res, user) {
             resolve(hash)
         });
     })
-
     let userToSave = {
         first: user.first,
         last: user.last,
@@ -29,8 +34,6 @@ async function createNewUser(res, user) {
         username: user.username,
         password: hashedPassword
     }
-
-
     if (user.username.length > 7 && user.password.length > 7) {
         pool.query('SELECT username FROM user WHERE username = ?', user.username, (err, results) => {
             if (err) {
