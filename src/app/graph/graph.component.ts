@@ -23,9 +23,17 @@ export class GraphComponent implements OnInit {
         datasets: [{
           label: 'Budget Buddy',
           data: [0, 10, 5, 2, 20, 30, 45],
-          backgroundColor: ['rgb(255, 99, 132)'],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(243, 45, 34, 0.2)'
+        ],
           borderColor: ['rgb(255, 99, 132)'],
-          borderWidth: 1
+          borderWidth: 4
         }]
       },
   
