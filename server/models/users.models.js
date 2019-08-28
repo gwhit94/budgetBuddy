@@ -1,7 +1,8 @@
 const pool = require('../connections');
+const bcrypt = require('bcrypt');
 
-function getUserById(res, userId) {
-    pool.query(`SELECT * FROM user WHERE id = ?`, userId, (err, results, field) => {
+function getUser(res, username) {
+    pool.query(`SELECT * FROM user WHERE username = ?`, username, (err, results, field) => {
         if (err) {
             res.send(err);
         }
@@ -10,7 +11,26 @@ function getUserById(res, userId) {
         }
     })
 };
-function createNewUser(res, user) {
+async function createNewUser(res, user) {
+    const password = user.password
+    const saltRounds = 10;
+
+    const hashedPassword = await new Promise((resolve, reject) => {
+        bcrypt.hash(password, saltRounds, function (err, hash) {
+            if (err) reject(err)
+            resolve(hash)
+        });
+    })
+
+    let userToSave = {
+        first: user.first,
+        last: user.last,
+        email: user.email,
+        username: user.username,
+        password: hashedPassword
+    }
+
+
     if (user.username.length > 7 && user.password.length > 7) {
         pool.query('SELECT username FROM user WHERE username = ?', user.username, (err, results) => {
             if (err) {
@@ -19,7 +39,7 @@ function createNewUser(res, user) {
             else if (results.length > 0) {
                 return res.send("Username already in use");
             }
-            pool.query(`INSERT INTO user SET ?`, user, (err, results, field) => {
+            pool.query(`INSERT INTO user SET ?`, userToSave, (err, results, field) => {
                 if (err) {
                     res.send(err);
                 }
@@ -33,5 +53,5 @@ function createNewUser(res, user) {
         return res.send("Bad credentials")
     }
 }
-module.exports.getUserById = getUserById;
+module.exports.getUser = getUser;
 module.exports.createNewUser = createNewUser;
