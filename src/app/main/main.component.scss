@@ -1,4 +1,43 @@
 button {
-    width: 200px;
+    width: 120px;
     height: 40px;
+    margin: 15px;
+    float: right;
+}
+
+.subExpense {
+    width: 80vw;
+    float: right;
+}
+
+.mainDrop {
+    clear: both;
+    margin: 0 5vw;
+}
+
+.header, .total {
+    margin: 30px;
+    text-align: center;
+}
+
+.individual {
+    margin-left: 30px;
+}
+
+.right {
+  float: right;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+mat-form-field {
+  margin-right: 12px;
 }

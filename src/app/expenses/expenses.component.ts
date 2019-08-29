@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AddService } from '../add.service';
 
 @Component({
   selector: 'app-expenses',
@@ -7,7 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpensesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public dialogRef: MatDialogRef<ExpensesComponent>,
+    private addService: AddService,
+
+    @Inject(MAT_DIALOG_DATA) public data: any
+    ) 
+    { }
+
+    onNoClick(): void {
+      this.dialogRef.close();
+    }
+
+    addExpense(desc, amount, type) {
+      this.addService.addToExpenses(desc, amount, type);
+      this.dialogRef.close();
+    }
+
 
   ngOnInit() {
   }

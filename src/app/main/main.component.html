@@ -1,4 +1,8 @@
-<mat-expansion-panel>
+<h3 class="header">My Finances</h3>
+
+<h4 class="total">Total Expendable Income: <span>[number]</span></h4>
+
+<mat-expansion-panel class="example-headers-align mainDrop">
     <mat-expansion-panel-header>
         <mat-panel-title>
             Total Income
@@ -8,26 +12,142 @@
         </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <p>each thing $$$</p>
-    <p>each thing $$$</p>
+    <p class="individual" *ngFor="let income of allIncome">{{income.description}}<span
+            class="right">{{income.amount}}</span></p>
 </mat-expansion-panel>
 
-<button mat-raised-button color="primary">Add Income</button>
+<button layout="row" layout-align="end center" mat-raised-button color="primary" (click)="addIncome()">Add
+    Income</button>
 
-<mat-expansion-panel>
+<mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle class="example-headers-align mainDrop">
     <mat-expansion-panel-header>
         <mat-panel-title>
             Total Expenses
         </mat-panel-title>
         <mat-panel-description>
-                $$ TOTAL DOLLAR AMOUNT
-            </mat-panel-description>
-   
+            $$ TOTAL DOLLAR AMOUNT
+        </mat-panel-description>
+
     </mat-expansion-panel-header>
 
-    <p>each thing $$$</p>
-    <p>each thing $$$</p>
+    <mat-expansion-panel class="subExpense">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Housing
+            </mat-panel-title>
+            <mat-panel-description>
+                $$ TOTAL HOUSING
+                <mat-icon>house</mat-icon>
+            </mat-panel-description>
+
+        </mat-expansion-panel-header>
+
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Housing'">{{expense.description}} <span
+                class="right">{{expense.amount}}</span></p>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel class="subExpense">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Transportation
+            </mat-panel-title>
+            <mat-panel-description>
+                $$ TOTAL
+                <mat-icon>commute</mat-icon>
+            </mat-panel-description>
+
+        </mat-expansion-panel-header>
+
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Transportation'">{{expense.description}} <span
+                class="right">{{expense.amount}}</span></p>
+
+    </mat-expansion-panel>
+    <mat-expansion-panel class="subExpense">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Bills
+            </mat-panel-title>
+            <mat-panel-description>
+                $$ TOTAL BILLS
+                <mat-icon>power</mat-icon>
+            </mat-panel-description>
+
+        </mat-expansion-panel-header>
+
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Bills'">{{expense.description}} <span
+                class="right">{{expense.amount}}</span></p>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="subExpense">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Entertainment
+            </mat-panel-title>
+            <mat-panel-description>
+                $$ TOTAL
+                <mat-icon>sports_kabaddi</mat-icon>
+            </mat-panel-description>
+
+        </mat-expansion-panel-header>
+
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Entertainment'">{{expense.description}} <span
+                class="right">{{expense.amount}}</span></p>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="subExpense">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Food
+            </mat-panel-title>
+            <mat-panel-description>
+                $$ TOTAL
+                <mat-icon>fastfood</mat-icon>
+            </mat-panel-description>
+
+        </mat-expansion-panel-header>
+
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Food/Groceries'">{{expense.description}} <span
+                class="right">{{expense.amount}}</span></p>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="subExpense">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Savings
+            </mat-panel-title>
+            <mat-panel-description>
+                $$ TOTAL
+                <mat-icon>money</mat-icon>
+            </mat-panel-description>
+
+        </mat-expansion-panel-header>
+
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Savings'">{{expense.description}} <span
+                class="right">{{expense.amount}}</span></p>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel class="subExpense">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Other
+            </mat-panel-title>
+            <mat-panel-description>
+                $$ TOTAL OTHER
+                <mat-icon>reorder</mat-icon>
+            </mat-panel-description>
+
+        </mat-expansion-panel-header>
+
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Other'">{{expense.description}} <span
+                class="right">{{expense.amount}}</span></p>
+
+    </mat-expansion-panel>
+
 
 </mat-expansion-panel>
 
-<button mat-raised-button color="primary">Add Expenses</button>
+<button mat-raised-button color="primary" (click)="addExpense()">Add Expenses</button>

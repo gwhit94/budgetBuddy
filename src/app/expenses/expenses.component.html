@@ -1,19 +1,29 @@
+<h4>Add Expense</h4><br>
+
 <form>
          <div class="form-group">
-        <label for="exampleFormControlInput1">Expense Name</label>
-        <input type="expense-name" class="form-control" id="expenseName" placeholder="">
+        <label for="exampleFormControlInput1">Description</label>
+        <input type="expense-description" class="form-control" id="expenseDescription" [(ngModel)]="expenseDescription" name="expenseDescription">
       </div>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Expense Amount</label>
-        <input type="expense-amount" class="form-control" id="expenseAmount" placeholder="">
+        <label for="exampleFormControlInput1">Amount</label>
+        <input type="expense-amount" class="form-control" id="expenseAmount" [(ngModel)]="expenseAmount" name="expenseAmount">
       </div>
     <div class="form-group">
-        <label for="exampleFormControlSelect1">Expense Type</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-            <option>Rent</option>
-            <option>Transportation</option>
-            <option>Bills</option>
-            <option>Food/Groceries</option>
+        <label for="exampleFormControlSelect1">Type</label>
+        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="expenseType" name="expenseType">
+            <option value="Housing">Housing</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Bills">Bills</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Food/Groceries">Food/Groceries</option>
+            <option value="Savings">Savings</option>
+            <option value="Other">Other</option>
         </select>
     </div>
 </form>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button cdkFocusInitial (click)="addExpense(expenseDescription, expenseAmount, expenseType)">Add</button>
+</div>
