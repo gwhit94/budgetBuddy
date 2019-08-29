@@ -1,18 +1,17 @@
 <img class="mainImage" src="/assets/budgetbuddy.png">
 
 <mat-card-content>
-        <form class="my-form">
-            <mat-form-field class="full-width">
-                <mat-label>Username</mat-label>
-                <input matInput placeholder="Username" name="username">
-            </mat-form-field>
-            <mat-form-field class="full-width">
-                <mat-label>Password</mat-label>
-                <input matInput placeholder="Password" name="password">
-            </mat-form-field>    
-            <mat-card-actions>
-                    <button mat-raised-button (click)="login()" color="primary">LOG IN</button>
-                </mat-card-actions>
-    
-        </form>
-    </mat-card-content>
+    <form class="my-form">
+        <mat-form-field class="full-width">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="username" placeholder="Username" name="username" id="username">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput [(ngModel)]="password" type="password" placeholder="Password" name="password" id="password">
+        </mat-form-field>    
+        <mat-card-actions>
+            <button mat-raised-button  color="primary" (click)="login()">LOG IN</button>
+        </mat-card-actions>
+    </form>
+</mat-card-content>
