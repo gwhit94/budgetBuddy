@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
+// import { AuthGuard } from '../auth.guard';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
-
+  username: string = '';
+  password: string = '';
+  constructor(private userService: UserService) { }
+  login(){
+    event.preventDefault()
+    let result = this.userService.loginUser(this.username, this.password).subscribe({
+      next(result){
+        console.log(result)
+      }
+    })
+  }
   ngOnInit() {
   }
-
 }

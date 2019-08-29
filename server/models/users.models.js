@@ -2,30 +2,36 @@ const pool = require('../connections');
 const bcrypt = require('bcrypt');
 
 function getUser(res, user) {
-    pool.query(`SELECT * FROM user WHERE username = ?`, user.username, (err, results, field) => {
-        if (err) {
-            res.send(err);
-        } else if (bcrypt.compareSync(user.password, results[0].password)) {
-            const logininfo = {
-                username: results[0].username,
-                first: results[0].first
+    pool.query(`SELECT * FROM user WHERE username = ?`, user.username, (err, results) => {
+        bcrypt.compare(user.password, results[0].password, (err, same) => {
+            if (err) {
+                res.send(err);
+            } 
+            else if (same) {
+                const logininfo = {
+                    username: results[0].username,
+                    first: results[0].first
+                }
+                res.send(logininfo);
             }
-            return res.send(logininfo);
-        }
-        else {
-            res.send("Username not found or password not matching");
-        }
+            else {
+                res.send("Username not found or password not matching");
+            }
+        })
     })
 };
 async function createNewUser(res, user) {
-    const password = user.password
+    let password = user.password
     const saltRounds = 10;
-
     const hashedPassword = await new Promise((resolve, reject) => {
         bcrypt.hash(password, saltRounds, function (err, hash) {
-            if (err) reject(err)
-            resolve(hash)
-        });
+            if (err) {
+                reject(err)
+            }
+            else{
+                resolve(hash)
+            }
+         });
     })
     let userToSave = {
         first: user.first,
