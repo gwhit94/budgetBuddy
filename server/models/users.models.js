@@ -10,7 +10,9 @@ function getUser(res, user) {
             else if (same) {
                 const logininfo = {
                     username: results[0].username,
-                    first: results[0].first
+                    first: results[0].first,
+                    id: results[0].id
+
                 }
                 res.send(logininfo);
             }
