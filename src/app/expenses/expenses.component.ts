@@ -9,6 +9,8 @@ import { AddService } from '../add.service';
 })
 export class ExpensesComponent implements OnInit {
 
+  expenseAmount: number;
+
   constructor(
     public dialogRef: MatDialogRef<ExpensesComponent>,
     private addService: AddService,

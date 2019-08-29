@@ -1,6 +1,9 @@
 <h3 class="header">My Finances</h3>
 
-<h4 class="total">Total Expendable Income: <span>[number]</span></h4>
+<app-graph [expendableTotal]="expendableTotal" [housingTotal]="housingTotal" [billsTotal]="billsTotal" [transportationTotal]="transportationTotal" [entertainmentTotal]="entertainmentTotal" [foodTotal]="foodTotal" [savingsTotal]="savingsTotal" [otherTotal]="otherTotal"></app-graph>
+
+
+<h4 class="total">Total Expendable Income: <span>${{expendableTotal}}</span></h4>
 
 <mat-expansion-panel class="example-headers-align mainDrop">
     <mat-expansion-panel-header>
@@ -8,7 +11,7 @@
             Total Income
         </mat-panel-title>
         <mat-panel-description>
-            $$ TOTAL DOLLAR AMOUNT
+            ${{incomeTotal}}
         </mat-panel-description>
     </mat-expansion-panel-header>
 
@@ -25,7 +28,7 @@
             Total Expenses
         </mat-panel-title>
         <mat-panel-description>
-            $$ TOTAL DOLLAR AMOUNT
+            ${{expensesTotal}}
         </mat-panel-description>
 
     </mat-expansion-panel-header>
@@ -36,7 +39,7 @@
                 Housing
             </mat-panel-title>
             <mat-panel-description>
-                $ number
+                ${{housingTotal}}
                 <mat-icon>house</mat-icon>
             </mat-panel-description>
 
@@ -52,7 +55,7 @@
                 Transportation
             </mat-panel-title>
             <mat-panel-description>
-                $$ TOTAL
+                ${{transportationTotal}}
                 <mat-icon>commute</mat-icon>
             </mat-panel-description>
 
@@ -68,7 +71,7 @@
                 Bills
             </mat-panel-title>
             <mat-panel-description>
-                $$ TOTAL BILLS
+                ${{billsTotal}}
                 <mat-icon>power</mat-icon>
             </mat-panel-description>
 
@@ -85,7 +88,7 @@
                 Entertainment
             </mat-panel-title>
             <mat-panel-description>
-                $$ TOTAL
+                ${{entertainmentTotal}}
                 <mat-icon>sports_kabaddi</mat-icon>
             </mat-panel-description>
 
@@ -102,7 +105,7 @@
                 Food
             </mat-panel-title>
             <mat-panel-description>
-                $$ TOTAL
+                ${{foodTotal}}
                 <mat-icon>fastfood</mat-icon>
             </mat-panel-description>
 
@@ -119,7 +122,7 @@
                 Savings
             </mat-panel-title>
             <mat-panel-description>
-                $$ TOTAL
+                ${{savingsTotal}}
                 <mat-icon>money</mat-icon>
             </mat-panel-description>
 
@@ -136,7 +139,7 @@
                 Other
             </mat-panel-title>
             <mat-panel-description>
-                $$ TOTAL OTHER
+                ${{otherTotal}}
                 <mat-icon>reorder</mat-icon>
             </mat-panel-description>
 
