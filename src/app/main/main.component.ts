@@ -13,6 +13,17 @@ export class MainComponent  {
 
   allIncome: Array<Object> = [];
   allExpenses: Array<Object> = [];
+  incomeTotal: number;
+  expensesTotal: number;
+  housingTotal: number;
+  transportationTotal: number;
+  billsTotal: number;
+  entertainmentTotal: number;
+  foodTotal: number;
+  savingsTotal: number;
+  otherTotal: number;
+
+  
 
   step = 0;
 
