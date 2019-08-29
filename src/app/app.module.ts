@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './materialmodule';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { IncomeComponent } from './income/income.component';
 import { ExpensesComponent } from './expenses/expenses.component';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ExpensesComponent } from './expenses/expenses.component';
     LoginComponent,
     RegisterComponent,
     IncomeComponent,
-    ExpensesComponent
+    ExpensesComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

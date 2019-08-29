@@ -3,27 +3,27 @@
 <form>
          <div class="form-group">
         <label for="exampleFormControlInput1">Description</label>
-        <input type="expense-description" class="form-control" id="expenseDescription" placeholder="">
+        <input type="expense-description" class="form-control" id="expenseDescription" [(ngModel)]="expenseDescription" name="expenseDescription">
       </div>
       <div class="form-group">
         <label for="exampleFormControlInput1">Amount</label>
-        <input type="expense-amount" class="form-control" id="expenseAmount" placeholder="">
+        <input type="expense-amount" class="form-control" id="expenseAmount" [(ngModel)]="expenseAmount" name="expenseAmount">
       </div>
     <div class="form-group">
         <label for="exampleFormControlSelect1">Type</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-            <option>Housing</option>
-            <option>Transportation</option>
-            <option>Bills</option>
-            <option>Entertainment</option>
-            <option>Food/Groceries</option>
-            <option>Savings</option>
-            <option>Other</option>
+        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="expenseType" name="expenseType">
+            <option value="Housing">Housing</option>
+            <option value="Transportation">Transportation</option>
+            <option value="Bills">Bills</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Food/Groceries">Food/Groceries</option>
+            <option value="Savings">Savings</option>
+            <option value="Other">Other</option>
         </select>
     </div>
 </form>
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Add</button>
+  <button mat-button cdkFocusInitial (click)="addExpense(expenseDescription, expenseAmount, expenseType)">Add</button>
 </div>
