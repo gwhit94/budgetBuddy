@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
+import { currentUser } from './current-user.interface'
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +12,10 @@ import { HttpHeaders } from '@angular/common/http';
 export class UserService {
   apiUrl: string;
   data: Object;
+  currentUser: currentUser;
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   loginUser(u, p){
     let data = {
@@ -20,7 +23,14 @@ export class UserService {
       "password": p
     }
     this.apiUrl = "/api/user/login";
-    return this.http.post(this.apiUrl, data);
+    this.http.post(this.apiUrl, data).subscribe({
+      next(result){
+        console.log(result)
+        localStorage.setItem('currentUser', JSON.stringify(result))
+        this.router.navigateByUrl('/main')
+      }
+    })
+
   }
   registerUser(first, last, email, username, password){
     let data = {
