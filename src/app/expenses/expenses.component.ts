@@ -23,8 +23,8 @@ export class ExpensesComponent implements OnInit {
       this.dialogRef.close();
     }
 
-    addExpense(desc, amount, type) {
-      this.addService.addToExpenses(desc, amount, type);
+    addExpense(desc, amount, recurring, type) {
+      this.addService.addToExpenses(desc, amount, recurring, type);
       this.dialogRef.close();
     }
 

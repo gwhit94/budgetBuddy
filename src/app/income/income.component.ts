@@ -23,8 +23,8 @@ export class IncomeComponent implements OnInit {
       this.dialogRef.close();
     }
 
-    addToIncome(desc, amount) {
-      this.addService.addToIncome(desc, amount);
+    addToIncome(desc, amount, recurring) {
+      this.addService.addToIncome(desc, amount, recurring);
       this.dialogRef.close();
     }
 
