@@ -25,8 +25,18 @@
   <mat-option value="Other">Other</mat-option>
 </mat-select><br>
 
+<label id="recurring">Recurring?</label>
+<mat-radio-group [(ngModel)]="expensesRecurring">
+  <mat-radio-button class="yes" [value]="1">
+    Yes
+  </mat-radio-button>
+  <mat-radio-button class="no" [value]="0">
+      No
+    </mat-radio-button>
+</mat-radio-group><br>
+
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button cdkFocusInitial (click)="addExpense(expenseDescription, expenseAmount, expenseType)">Add</button>
+  <button mat-button cdkFocusInitial (click)="addExpense(expenseDescription, expenseAmount, expensesRecurring, expenseType)">Add</button>
 </div>
 </div>

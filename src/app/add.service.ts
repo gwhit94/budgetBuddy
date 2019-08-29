@@ -10,21 +10,21 @@ export class AddService {
 
   constructor() { }
 
-  addToIncome(desc, amount) {
+  addToIncome(desc, amount, recurring) {
     let income = {
       description: desc,
       amount: amount,
-      recurring: false,
+      recurring: recurring,
       user_id: 1
     }
     this.allIncome.push(income);
   }
 
-  addToExpenses(desc, amount, type) {
+  addToExpenses(desc, amount, recurring, type) {
     let expense = {
       description: desc,
       amount: amount,
-      recurring: false,
+      recurring: recurring,
       type_id: type,
       user_id: 1
     }

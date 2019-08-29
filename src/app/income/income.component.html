@@ -3,13 +3,24 @@
 <mat-form-field>
        <label for="exampleFormControlInput1">Description</label>
         <input matInput type="income-description" class="form-control" id="incomeDescription" [(ngModel)]="incomeDescription" name="incomeDescription">
-  </mat-form-field> 
+  </mat-form-field> <br>
+
    <mat-form-field>
         <label for="exampleFormControlInput1">Amount</label>
         <input matInput type="income-amount" class="form-control" id="incomeAmount" [(ngModel)]="incomeAmount" name="incomeAmount">
-</mat-form-field> 
+</mat-form-field> <br>
+
+<label id="recurring">Recurring?  </label>
+<mat-radio-group [(ngModel)]="incomeRecurring">
+  <mat-radio-button class="yes" [value]="1">
+    Yes 
+  </mat-radio-button>
+  <mat-radio-button class="no" [value]="0">
+      No 
+    </mat-radio-button>
+</mat-radio-group><br><br>
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button cdkFocusInitial (click)="addToIncome(incomeDescription, incomeAmount)">Add</button>
+  <button mat-button cdkFocusInitial (click)="addToIncome(incomeDescription, incomeAmount, incomeRecurring)">Add</button>
 </div>
