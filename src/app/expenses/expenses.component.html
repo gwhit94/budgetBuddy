@@ -1,29 +1,32 @@
 <h4>Add Expense</h4><br>
 
-<form>
-         <div class="form-group">
-        <label for="exampleFormControlInput1">Description</label>
-        <input type="expense-description" class="form-control" id="expenseDescription" [(ngModel)]="expenseDescription" name="expenseDescription">
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlInput1">Amount</label>
-        <input type="expense-amount" class="form-control" id="expenseAmount" [(ngModel)]="expenseAmount" name="expenseAmount">
-      </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Type</label>
-        <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="expenseType" name="expenseType">
-            <option value="Housing">Housing</option>
-            <option value="Transportation">Transportation</option>
-            <option value="Bills">Bills</option>
-            <option value="Entertainment">Entertainment</option>
-            <option value="Food/Groceries">Food/Groceries</option>
-            <option value="Savings">Savings</option>
-            <option value="Other">Other</option>
-        </select>
-    </div>
-</form>
+<div>
+<mat-form-field>
+  <label for="exampleFormControlInput1">Description</label>
+  <input matInput type="expense-description" class="form-control" id="expenseDescription"
+    [(ngModel)]="expenseDescription" name="expenseDescription">
+</mat-form-field><br>
+
+<mat-form-field>
+  <label for="exampleFormControlInput1">Amount</label>
+  <input matInput type="expense-amount" class="form-control" id="expenseAmount" [(ngModel)]="expenseAmount"
+    name="expenseAmount">
+</mat-form-field><br>
+
+
+<label for="exampleFormControlSelect1">Type</label><br>
+<mat-select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="expenseType" name="expenseType" placeholder="Select One">
+  <mat-option value="Housing">Housing</mat-option>
+  <mat-option value="Transportation">Transportation</mat-option>
+  <mat-option value="Bills">Bills</mat-option>
+  <mat-option value="Entertainment">Entertainment</mat-option>
+  <mat-option value="Food/Groceries">Food/Groceries</mat-option>
+  <mat-option value="Savings">Savings</mat-option>
+  <mat-option value="Other">Other</mat-option>
+</mat-select><br>
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cancel</button>
   <button mat-button cdkFocusInitial (click)="addExpense(expenseDescription, expenseAmount, expenseType)">Add</button>
+</div>
 </div>
