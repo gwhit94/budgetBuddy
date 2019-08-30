@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "start": "concurrently --kill-others \"ng build --watch\" \"nodemon server.js\"",
-    "front" : "ng build --watch",
+    "front": "ng build --watch",
     "back": "nodemon server",
     "ng": "ng",
     "build": "ng build",
