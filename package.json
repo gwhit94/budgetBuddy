@@ -1,6 +1,6 @@
 {
   "name": "budget-buddy",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "start": "node server.js",
     "front" : "ng build --watch",
@@ -10,6 +10,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "engines": {
+    "node": "10.16.1"
   },
   "private": true,
   "dependencies": {
