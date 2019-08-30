@@ -48,6 +48,14 @@ export class MainComponent  {
     });
   }
 
+  removeIncome(i) {
+    this.allIncome.splice(i, 1);
+  }
+
+  removeItem(i) {
+    this.allExpenses.splice(i, 1);
+  }
+
   get expendableTotal() {
     let expendable = 0;
     this.allIncome.forEach(x => {
@@ -158,6 +166,10 @@ export class MainComponent  {
   }
 
 ngOnInit() {
+
+//display to database
+
+
   this.allExpenses = [...this.addService.allExpenses];
   this.allIncome = [...this.addService.allIncome]; 
 }

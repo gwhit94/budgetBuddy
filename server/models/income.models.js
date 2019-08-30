@@ -16,7 +16,7 @@ function addIncome(res, income) {
             res.send(err);
         }
         else {
-            res.send(results);
+            res.send(income);
         }
     });
 }

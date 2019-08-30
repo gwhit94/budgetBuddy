@@ -24,7 +24,9 @@ export class ExpensesComponent implements OnInit {
     }
 
     addExpense(desc, amount, recurring, type) {
-      this.addService.addToExpenses(desc, amount, recurring, type);
+      let user = JSON.parse(localStorage.getItem('currentUser'));
+      let userId = user.id;
+      this.addService.addToExpenses(desc, amount, recurring, type, userId);
       this.dialogRef.close();
     }
 

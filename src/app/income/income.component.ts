@@ -24,7 +24,9 @@ export class IncomeComponent implements OnInit {
     }
 
     addToIncome(desc, amount, recurring) {
-      this.addService.addToIncome(desc, amount, recurring);
+      let user = JSON.parse(localStorage.getItem('currentUser'));
+      let userId = user.id;
+      this.addService.addToIncome(desc, amount, recurring, userId);
       this.dialogRef.close();
     }
 

@@ -1,34 +1,41 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddService {
 
+  apiUrl: string;
   allIncome: Object[] = [];
   allExpenses: Object[] = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  addToIncome(desc, amount, recurring) {
+  addToIncome(desc, amount, recurring, userId) {
     let income = {
       description: desc,
       amount: amount,
       recurring: recurring,
-      user_id: 1
+      user_id: userId
     }
-    this.allIncome.push(income);
+    this.apiUrl = "/api/income/add";
+    return this.http.post(this.apiUrl, income).subscribe(
+        result => this.allIncome.push(result));
   }
 
-  addToExpenses(desc, amount, recurring, type) {
+  addToExpenses(desc, amount, recurring, type, userId) {
     let expense = {
       description: desc,
       amount: amount,
       recurring: recurring,
       type_id: type,
-      user_id: 1
+      user_id: userId
     }
-    this.allExpenses.push(expense);
+    this.apiUrl = "/api/expenses/add";
+    return this.http.post(this.apiUrl, expense).subscribe(
+      result => this.allExpenses.push(result));
   }
 
 
