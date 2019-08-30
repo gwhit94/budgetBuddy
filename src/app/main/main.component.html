@@ -46,7 +46,7 @@
 
         </mat-expansion-panel-header>
 
-        <p class="individual" *ngFor="let expense of allExpenses | filter:'Housing'; let i = index">{{expense.description}} <img (click)="removeItem(i)" class="right deleteIcon" src="/assets/delete.png"><span
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Housing'; let i = index">{{expense.description}} <img (click)="removeExpense(i)" class="right deleteIcon" src="/assets/delete.png"><span
                 class="right">${{expense.amount}}</span></p>
 
     </mat-expansion-panel>
@@ -62,7 +62,7 @@
 
         </mat-expansion-panel-header>
 
-        <p class="individual" *ngFor="let expense of allExpenses | filter:'Transportation'; let i = index">{{expense.description}}<img (click)="removeItem(i)" class="right deleteIcon" src="/assets/delete.png">
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Transportation'; let i = index">{{expense.description}}<img (click)="removeExpense(i)" class="right deleteIcon" src="/assets/delete.png">
             <span class="right">${{expense.amount}}</span></p>
 
     </mat-expansion-panel>
@@ -78,7 +78,7 @@
 
         </mat-expansion-panel-header>
 
-        <p class="individual" *ngFor="let expense of allExpenses | filter:'Bills'; let i = index">{{expense.description}} <img (click)="removeItem(i)" class="right deleteIcon" src="/assets/delete.png"><span
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Bills'; let i = index">{{expense.description}} <img (click)="removeExpense(i)" class="right deleteIcon" src="/assets/delete.png"><span
                 class="right">${{expense.amount}}</span></p>
 
     </mat-expansion-panel>
@@ -95,7 +95,7 @@
 
         </mat-expansion-panel-header>
 
-        <p class="individual" *ngFor="let expense of allExpenses | filter:'Entertainment'; let i = index">{{expense.description}} <img (click)="removeItem(i)" class="right deleteIcon" src="/assets/delete.png"><span
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Entertainment'; let i = index">{{expense.description}} <img (click)="removeExpense(i)" class="right deleteIcon" src="/assets/delete.png"><span
                 class="right">${{expense.amount}}</span></p>
 
     </mat-expansion-panel>
@@ -112,7 +112,7 @@
 
         </mat-expansion-panel-header>
 
-        <p class="individual" *ngFor="let expense of allExpenses | filter:'Food/Groceries'; let i = index">{{expense.description}} <img (click)="removeItem(i)" class="right deleteIcon" src="/assets/delete.png">
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Food/Groceries'; let i = index">{{expense.description}} <img (click)="removeExpense(i)" class="right deleteIcon" src="/assets/delete.png">
             <span class="right">${{expense.amount}}</span></p>
 
     </mat-expansion-panel>
@@ -129,7 +129,7 @@
 
         </mat-expansion-panel-header>
 
-        <p class="individual" *ngFor="let expense of allExpenses | filter:'Savings'; let i = index">{{expense.description}} <img (click)="removeItem(i)" class="right deleteIcon" src="/assets/delete.png"><span
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Savings'; let i = index">{{expense.description}} <img (click)="removeExpense(i)" class="right deleteIcon" src="/assets/delete.png"><span
                 class="right">${{expense.amount}}</span></p>
 
     </mat-expansion-panel>
@@ -146,7 +146,7 @@
 
         </mat-expansion-panel-header>
 
-        <p class="individual" *ngFor="let expense of allExpenses | filter:'Other'; let i = index">{{expense.description}} <img (click)="removeItem(i)" class="right deleteIcon" src="/assets/delete.png"><span
+        <p class="individual" *ngFor="let expense of allExpenses | filter:'Other'; let i = index">{{expense.description}} <img (click)="removeExpense(i)" class="right deleteIcon" src="/assets/delete.png"><span
                 class="right">${{expense.amount}}</span></p>
 
     </mat-expansion-panel>

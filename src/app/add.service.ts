@@ -18,12 +18,20 @@ export class AddService {
       description: desc,
       amount: amount,
       recurring: recurring,
-      user_id: userId
+      user_id: userId,
+      id: null
     }
     this.apiUrl = "/api/income/add";
     return this.http.post(this.apiUrl, income).subscribe(
-        result => this.allIncome.push(result));
+        result => this.allIncome.push(result)
+        );
   }
+  // deleteFromIncome(id) {
+  //   this.apiUrl = `/api/income/delete/${id}`;
+  //   return this.http.delete(this.apiUrl).subscribe(
+  //       result => this.allIncome.push(result)
+  //       );
+  // }
 
   addToExpenses(desc, amount, recurring, type, userId) {
     let expense = {

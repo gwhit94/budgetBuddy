@@ -16,6 +16,7 @@ function addIncome(res, income) {
             res.send(err);
         }
         else {
+            income.id = results.insertId;
             res.send(income);
         }
     });

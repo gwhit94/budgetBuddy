@@ -43,4 +43,7 @@ export class UserService {
     this.apiUrl = "/api/user/signup";
     return this.http.post(this.apiUrl, data);
   }
+  logoutUser(){
+    // JSON.parse()
+  }
 }

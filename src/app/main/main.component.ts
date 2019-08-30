@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { IncomeComponent } from '../income/income.component';
 import { ExpensesComponent } from '../expenses/expenses.component';
 import { AddService } from '../add.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-main',
@@ -11,6 +12,7 @@ import { AddService } from '../add.service';
 })
 export class MainComponent  {
 
+  apiUrl: string;
   allIncome: Array<Object> = [];
   allExpenses: Array<Object> = [];
 
@@ -26,7 +28,7 @@ export class MainComponent  {
     this.step--;
   }
 
-  constructor(public dialog: MatDialog, private addService: AddService) { }
+  constructor(public dialog: MatDialog, private addService: AddService, private http: HttpClient) { }
 
   addIncome(): void {
     const dialogRef = this.dialog.open(IncomeComponent, {
@@ -49,11 +51,18 @@ export class MainComponent  {
   }
 
   removeIncome(i) {
-    this.allIncome.splice(i, 1);
+    let id = this.allIncome[i]["id"];
+    this.apiUrl = `/api/income/delete/${id}`;
+
+    // removeIncome deletes from table before updating client, add await or 
+    // other async method to wait for server deletion before trying to update client
+    this.http.delete(this.apiUrl).subscribe(
+      result => this.allIncome = [...this.addService.allIncome.splice(i, 1)]
+    );
   }
 
-  removeItem(i) {
-    this.allExpenses.splice(i, 1);
+  removeExpense(i) {
+    this.allExpenses = [...this.addService.allExpenses.splice(i, 1)];
   }
 
   get expendableTotal() {
@@ -166,9 +175,6 @@ export class MainComponent  {
   }
 
 ngOnInit() {
-
-//display to database
-
 
   this.allExpenses = [...this.addService.allExpenses];
   this.allIncome = [...this.addService.allIncome]; 
