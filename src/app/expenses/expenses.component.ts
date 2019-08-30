@@ -9,7 +9,10 @@ import { AddService } from '../add.service';
 })
 export class ExpensesComponent implements OnInit {
 
+  expenseDescription: string;
   expenseAmount: number;
+  expensesRecurring: number;
+  expenseType: number;
 
   constructor(
     public dialogRef: MatDialogRef<ExpensesComponent>,
@@ -23,10 +26,10 @@ export class ExpensesComponent implements OnInit {
       this.dialogRef.close();
     }
 
-    addExpense(desc, amount, recurring, type) {
+    addExpense() {
       let user = JSON.parse(localStorage.getItem('currentUser'));
       let userId = user.id;
-      this.addService.addToExpenses(desc, amount, recurring, type, userId);
+      this.addService.addToExpenses(this.expenseDescription, this.expenseAmount, this.expensesRecurring, this.expenseType, userId);
       this.dialogRef.close();
     }
 

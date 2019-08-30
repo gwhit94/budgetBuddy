@@ -8,8 +8,9 @@ import { AddService } from '../add.service';
   styleUrls: ['./income.component.scss']
 })
 export class IncomeComponent implements OnInit {
-
+  incomeDescription: string;
   incomeAmount: number;
+  incomeRecurring: number;
 
   constructor(
     public dialogRef: MatDialogRef<IncomeComponent>,
@@ -23,10 +24,10 @@ export class IncomeComponent implements OnInit {
       this.dialogRef.close();
     }
 
-    addToIncome(desc, amount, recurring) {
+    addToIncome() {
       let user = JSON.parse(localStorage.getItem('currentUser'));
       let userId = user.id;
-      this.addService.addToIncome(desc, amount, recurring, userId);
+      this.addService.addToIncome(this.incomeDescription, this.incomeAmount, this.incomeRecurring, userId);
       this.dialogRef.close();
     }
 
