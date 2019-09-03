@@ -12,7 +12,6 @@ function getUser(res, user) {
                     username: results[0].username,
                     first: results[0].first,
                     id: results[0].id
-
                 }
                 res.send(logininfo);
             }

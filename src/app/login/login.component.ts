@@ -9,12 +9,13 @@ import { Router } from '@angular/router'
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  username: string = '';
-  password: string = '';
-  constructor(private userService: UserService) { }
+  username: string;
+  password: string;
+  constructor(private userService: UserService, private router: Router) { }
   login(){
-    event.preventDefault()
-    this.userService.loginUser(this.username, this.password)
+    event.preventDefault();
+    this.userService.loginUser(this.username, this.password);
+    this.router.navigate(['/main']);
   }
   ngOnInit() {
   }

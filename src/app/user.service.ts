@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { HttpHeaders } from '@angular/common/http';
 import { currentUser } from './current-user.interface'
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +14,7 @@ export class UserService {
   currentUser: currentUser;
 
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor( private http: HttpClient) { }
 
   loginUser(u, p){
     let data = {
@@ -27,7 +26,6 @@ export class UserService {
       next(result){
         console.log(result)
         localStorage.setItem('currentUser', JSON.stringify(result))
-        this.router.navigateByUrl('/main')
       }
     })
 
