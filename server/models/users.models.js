@@ -1,4 +1,4 @@
-const pool = require('../connections');
+const pool = require('../config/database.conf.js');
 const bcrypt = require('bcrypt');
 
 function getUser(res, user) {
