@@ -12,7 +12,7 @@ export class ExpensesComponent implements OnInit {
   expenseDescription: string;
   expenseAmount: number;
   expenseType: string;
-  expenseRecurring: number;
+  expensesRecurring: number;
 
 
   constructor(
