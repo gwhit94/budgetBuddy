@@ -1,4 +1,4 @@
-const pool = require('../connections');
+const pool = require('../config/database.conf');
 
 function getIncome(res, userid) {
     pool.query(`SELECT * FROM income WHERE user_id = ?`, userid, (err, results, field) => {

@@ -1,5 +1,8 @@
-const pool = require('../connections');
+const pool = require('../config/database.conf');
 const bcrypt = require('bcrypt');
+
+
+// LocalStrategy(res, user)
 
 function getUser(res, user) {
     pool.query(`SELECT * FROM user WHERE username = ?`, user.username, (err, results) => {
@@ -12,7 +15,6 @@ function getUser(res, user) {
                     username: results[0].username,
                     first: results[0].first,
                     id: results[0].id
-
                 }
                 res.send(logininfo);
             }
@@ -22,6 +24,7 @@ function getUser(res, user) {
         })
     })
 };
+
 async function createNewUser(res, user) {
     let password = user.password
     const saltRounds = 10;

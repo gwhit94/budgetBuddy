@@ -1,4 +1,4 @@
-const pool = require('../connections');
+const pool = require('../config/database.conf');
 
 function getTypes(res, req) {
     pool.query(`SELECT * FROM expense_type`, (err, results, field) => {

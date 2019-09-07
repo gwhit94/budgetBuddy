@@ -9,7 +9,11 @@ import { AddService } from '../add.service';
 })
 export class ExpensesComponent implements OnInit {
 
+  expenseDescription: string;
   expenseAmount: number;
+  expenseType: string;
+  expenseRecurring: number;
+
 
   constructor(
     public dialogRef: MatDialogRef<ExpensesComponent>,
