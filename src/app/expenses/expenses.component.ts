@@ -11,9 +11,14 @@ export class ExpensesComponent implements OnInit {
 
   expenseDescription: string;
   expenseAmount: number;
+<<<<<<< HEAD
   expenseType: string;
   expenseRecurring: number;
 
+=======
+  expensesRecurring: number;
+  expenseType: number;
+>>>>>>> 8286694adb5b0bb2e4c6fb199a25e8ddf89db028
 
   constructor(
     public dialogRef: MatDialogRef<ExpensesComponent>,
@@ -27,10 +32,10 @@ export class ExpensesComponent implements OnInit {
       this.dialogRef.close();
     }
 
-    addExpense(desc, amount, recurring, type) {
+    addExpense() {
       let user = JSON.parse(localStorage.getItem('currentUser'));
       let userId = user.id;
-      this.addService.addToExpenses(desc, amount, recurring, type, userId);
+      this.addService.addToExpenses(this.expenseDescription, this.expenseAmount, this.expensesRecurring, this.expenseType, userId);
       this.dialogRef.close();
     }
 
