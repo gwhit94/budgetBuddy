@@ -11,14 +11,9 @@ export class ExpensesComponent implements OnInit {
 
   expenseDescription: string;
   expenseAmount: number;
-<<<<<<< HEAD
   expenseType: string;
   expenseRecurring: number;
 
-=======
-  expensesRecurring: number;
-  expenseType: number;
->>>>>>> 8286694adb5b0bb2e4c6fb199a25e8ddf89db028
 
   constructor(
     public dialogRef: MatDialogRef<ExpensesComponent>,

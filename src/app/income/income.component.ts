@@ -8,17 +8,11 @@ import { AddService } from '../add.service';
   styleUrls: ['./income.component.scss']
 })
 export class IncomeComponent implements OnInit {
-<<<<<<< HEAD
 
   incomeDescription: string;
   incomeAmount: number;
   incomeRecurring: number;
 
-=======
-  incomeDescription: string;
-  incomeAmount: number;
-  incomeRecurring: number;
->>>>>>> 8286694adb5b0bb2e4c6fb199a25e8ddf89db028
 
   constructor(
     public dialogRef: MatDialogRef<IncomeComponent>,
